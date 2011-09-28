@@ -17,6 +17,7 @@ module VMC::Cli
       'Erlang/OTP Rebar' => ['otp_rebar',  { :mem => '64M',  :description => 'Erlang/OTP Rebar Application'}],
       'WSGI'     => ['wsgi',    { :mem => '64M',  :description => 'Python WSGI Application'}],
       'Django'   => ['django',  { :mem => '128M', :description => 'Python Django Application'}],
+      'Nuxeo'   => ['nuxeo',  { :mem => '512M', :description => 'Nuxeo Application'}],
     }
 
     class << self
