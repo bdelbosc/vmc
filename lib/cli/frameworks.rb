@@ -94,6 +94,16 @@ module VMC::Cli
           elsif !Dir.glob('wsgi.py').empty?
             return Framework.lookup('WSGI')
 
+          # Nuxeo
+          elsif Dir.glob('*.jar').first
+            jar_file = Dir.glob('*.jar').first
+            contents = ZipUtil.entry_lines(jar_file)
+            if contents =~ /META-INF\/MANIFEST\.MF/
+              # TODO: Make sure it is a Nuxeo jar plugin by checking for
+              # nuxeo-component in the MANIFEST.MF
+              return Framework.lookup('Nuxeo')
+            end
+
           end
         end
         nil
